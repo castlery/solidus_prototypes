@@ -17,5 +17,9 @@ module SolidusPrototypes
     end
 
     config.to_prepare(&method(:activate).to_proc)
+
+    initializer "solidus_prototypes.add_product_tabs" do |app|
+      Spree::BackendConfiguration::PRODUCT_TABS.push(:prototypes)
+    end
   end
 end
